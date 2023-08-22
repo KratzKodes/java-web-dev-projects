@@ -18,9 +18,11 @@ public class Stings {
         String userCheckedWord = input.nextLine();
 
         if(aliceInWonderLandPhrase.toLowerCase().contains(userCheckedWord.toLowerCase())){
-            System.out.println("The phrase does contain "+ userCheckedWord);
+            String isValidWordPhrase = String.format("The phrase does contain %s ", userCheckedWord);
+            System.out.println(isValidWordPhrase);
         }else{
-            System.out.println("The phrase does not contain "+ userCheckedWord);
+            String isNotValidWordPhrase = String.format("The phrase does not contain "+ userCheckedWord);
+            System.out.println(isNotValidWordPhrase);
         }
     }
 }
