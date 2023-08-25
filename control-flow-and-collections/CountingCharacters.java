@@ -18,16 +18,16 @@ public interface CountingCharacters {
         HashMap<String,Integer> charCount = new HashMap<>();
 
         //Loop through each character in the array
-        for(int i = 0; i<userStatementCharArray.length;i++){
+        for (char character : userStatementCharArray) {
             //Determine if the character is alphabetic
-            if(Character.isAlphabetic(userStatementCharArray[i])){
+            if (Character.isAlphabetic(character)) {
                 //Convert the char to a String
-                String quoteCharacter = Character.toString(userStatementCharArray[i]);
+                String quoteCharacter = Character.toString(character);
                 //Check to see if the hashmap contains that key and update appropriately
-                if(charCount.containsKey(quoteCharacter)){
-                    charCount.put(quoteCharacter,charCount.get(quoteCharacter)+1);
-                }else{
-                    charCount.put(Character.toString(userStatementCharArray[i]),1);
+                if (charCount.containsKey(quoteCharacter)) {
+                    charCount.put(quoteCharacter, charCount.get(quoteCharacter) + 1);
+                } else {
+                    charCount.put(Character.toString(character), 1);
                 }
             }
         }
