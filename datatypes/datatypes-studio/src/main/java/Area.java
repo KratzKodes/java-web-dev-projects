@@ -22,7 +22,5 @@ public class Area {
         }catch (Exception e){
             System.out.println("Invalid Input\n**Program Closed**");
         }
-
-
     }
 }
