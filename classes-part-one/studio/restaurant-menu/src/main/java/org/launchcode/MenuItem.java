@@ -1,31 +1,47 @@
 package org.launchcode;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MenuItem {
+
+    private String name;
     private double price;
     private String description;
+
     private String category;
-    private boolean isNew;
+    private boolean available = true;
 
-    public MenuItem(double p, String d, String c, boolean iN) {
-        this.price = p;
-        this.description = d;
-        this.category = c;
-        this.isNew = iN;
-    }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setDescription(String description) {
+    public MenuItem(String name, String description, String category,double price ){
+        this.name = name;
         this.description = description;
-    }
-
-    public void setCategory(String category) {
         this.category = category;
+        this.price = price;
+
     }
 
-    public void setNew(boolean aNew) {
-        isNew = aNew;
+    public MenuItem(String name,String description, String category){
+        this(name,description,category,0);
     }
+
+    String getName(){
+        return name;
+    }
+
+    String getDescription(){
+        return description;
+    }
+
+    String getCategory(){
+        return category;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    String getMenuItem(){
+        return "\t"+ name + " : " + description + " ( "+ price + " ) " + "~ " + category;
+    }
+
 }
