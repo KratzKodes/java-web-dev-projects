@@ -12,7 +12,7 @@ public class MenuItem {
     private boolean available = true;
 
 
-    public MenuItem(String name, String description, String category,double price ){
+    public MenuItem(String name, String description, String category, double price ){
         this.name = name;
         this.description = description;
         this.category = category;
@@ -20,7 +20,7 @@ public class MenuItem {
 
     }
 
-    public MenuItem(String name,String description, String category){
+    public MenuItem(String name, String description, String category){
         this(name,description,category,0);
     }
 
@@ -41,7 +41,7 @@ public class MenuItem {
     }
 
     String getMenuItem(){
-        return "\t"+ name + " : " + description + " ( "+ price + " ) " + "~ " + category;
+        return "\t"+ name + " : " + description + " ( $"+ price + " ) " + "~ " + category;
     }
 
 }

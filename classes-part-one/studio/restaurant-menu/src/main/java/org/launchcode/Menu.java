@@ -12,10 +12,14 @@ public class Menu {
         menuItems.add(menuItem);
     }
 
+    public void deleteMenuItem (MenuItem item) {
+        menuItems.remove(item);
+    }
+
     public void printMenu(){
         Date date = new Date();
-        SimpleDateFormat ft = new SimpleDateFormat("yyyy.MM.dd ");
-        System.out.println("\n=====================\n   Restaurant Menu\n\t "+ ft.format(date)+"\n=====================\n");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd ");
+        System.out.println("\n=====================\n   Restaurant Menu\n\t "+ dateFormat.format(date)+"\n=====================\n");
         for(MenuItem menuItem : menuItems){
             if(menuItem.isAvailable()){
                 System.out.println(menuItem.getMenuItem());
