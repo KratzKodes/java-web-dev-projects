@@ -1,68 +1,95 @@
 package org.launchcode.skillstracker.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @ResponseBody
 public class SkillsController {
 
-    @GetMapping("/")
-    public String skillController(){return "<html>" +
-            "<body>" +
-            "<h1>Skills Tracker<h1>"+
-            "<h2>LaunchCode Skills<h2>" +
-            "<ol>" +
-            "<li>Java</li>"+
-            "<li>JavaScript</li>"+
-            "<li>Python</li>"+
-            "</body>"+
-            "</html>";}
+        //lives at the root path
+        @GetMapping("/")
+        public String skillsControllerRender (){
+            return "<html>" +
+                    "<head>" +
+                    "<style>" +
+                    "body {background-color: Beige}" +
+                    "h1{color: #333}" +
+                    "h2{color: #031}" +
+                    "</style>" +
+                    "</head>" +
+                    "<body>" +
+                    "<h1>Skills Tracker</h1>" +
+                    "<h2>We have a few skills we would like to learn. Here is the list!</h2>" +
+                    "<ol>" +
+                    "<li>Java </li>" +
+                    "<li>JavaScript </li>" +
+                    "<li>Python</li>" +
+                    "</ol>" +
+                    "</body>" +
+                    "</html>";
+        }
 
-    @GetMapping("/form")
-    public String skillControllerForm(){
-        return "<html>" +
-                "<body>" +
-                "<form>" +
-                "<label for='name'>Name: </label>" +
-                "<input type='text' name='name'>" +
-                "<br><br>" +
+        @GetMapping("form")
+        public String skillsControllerForm(){
+            return "<html>" +
+                    "<body>" +
+                    "<form action='/form' method= 'POST'>" +
+                    "<label>Name: </label>" +
+                    "<input name='userName'/><br/><br/>" +
 
-                //Favorite Language
-                "<label for='selection'>My favorite language:</label>"+
-                "<select id='selection' name='option'>" +
-                "<option value='option1'>Java</option>" +
-                "<option value='option2'>JavaScript</option>" +
-                "<option value='option3'>Python</option>" +
-                "</select>" +
-                "<br><br>"+
+                    //Favorite Language
+                    "<label>My favorite language</label><br/>" +
+                    "<select name='favoriteLang1'>" +
+                    "<option value='Java'>Java</option>" +
+                    "<option value='JavaScript'>JavaScript</option>" +
+                    "<option value='Python'>Python</option>"+
+                    "</select><br/>"+
+
+                    //Second Favorite Language
+                    "<label>My second favorite language</label><br/>" +
+                    "<select name='favoriteLang2'>" +
+                    "<option value='Java'>Java</option>" +
+                    "<option value='JavaScript'>JavaScript</option>" +
+                    "<option value='Python'>Python</option>" +
+                    "</select><br/>"+
+
+                    //Third Favorite Language
+                    "<label>My third favorite language</label><br/>" +
+                    "<select name='favoriteLang3'>" +
+                    "<option value='Java'>Java</option>" +
+                    "<option value='JavaScript'>JavaScript</option>" +
+                    "<option value='Python'>Python</option>" +
+                    "</select><br/><br/>" +
+                    "<input type='submit' value='Submit'/>"+
+
+                    "</form>" +
+                    "</body>" +
+                    "</html>";
+        }
+
+        @RequestMapping("/form")
+        public String processSkillsForm(@RequestParam String userName, String favoriteLang1, String favoriteLang2, String favoriteLang3 ){
+            return "<html>" +
+                    "<head>" +
+                    "<style>" +
+                    "body {background-color: Beige}" +
+                    "h1{color: #333}" +
+                    "h2{color: #031}" +
+                    "</style>" +
+                    "</head>" +
+                    "<body>" +
+                    "<h1>"+ userName + "</h1>" +
+                    "<h2> Skills Tracker </h2>" +
+                    "<p> Here are my favorite skills:"+ "</p>" +
+                    "<ol>" +
+                    "<li>" + favoriteLang1 + "</li>"+
+                    "<li>" + favoriteLang2 + "</li>"+
+                    "<li>" + favoriteLang3 + "</li>"+
+                    "</ol>" +
+                    "</body>" +
+                    "</html>";
+        }
 
 
-                //Second Favorite Language
-                "<label for='selection2'>My Second language:</label>"+
-                "<select id='secondSelection' name='secondSelectionOption'>" +
-                "<option value='secondSelectionOption1'>Java</option>" +
-                "<option value='secondSelectionOption2'>JavaScript</option>" +
-                "<option value='secondSelectionOption3'>Python</option>" +
-                "</select>" +
-                "<br><br>"+
-
-                //Third Favorite Language
-                "<label for='selection3'>My Third language:</label>"+
-                "<select id='thirdSelection' name='thirdSelectionOption'>" +
-                "<option value='thirdSelectionOption1'>Java</option>" +
-                "<option value='thirdSelectionOption2'>JavaScript</option>" +
-                "<option value='thirdSelectionOption3'>Python</option>" +
-                "</select>" +
-                "<br><br>"+
-
-
-                "</form>" +
-                "</body>" +
-                "</html>";
-
-
-
-    }
 }
